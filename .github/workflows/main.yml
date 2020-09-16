@@ -1,13 +1,15 @@
 name: Publish Docker image (server-info)
 
 on:
-  push:
-    branches: [master]
+  workflow_dispatch:
+    inputs:
+      dir:
+        description: 'Directory'
+        required: true
+      tag:
+        description: 'Image tag'
+        required: true
 
-defaults:
-  run:
-    working-directory: server-info
-  
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -18,7 +20,10 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
+          file: ./${{ github.event.inputs.dir }}/Dockerfile
+          context: ./${{ github.event.inputs.dir }}
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
           registry: ghcr.io
           repository: subicura/server-info
+          tag: ${{ github.event.inputs.tag }}
