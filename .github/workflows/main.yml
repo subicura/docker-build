@@ -16,5 +16,6 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          repository: ghcr.io/subicura/server-info
+          registry: ghcr.io
+          repository: subicura/server-info
           tag_with_ref: true
