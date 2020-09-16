@@ -1,4 +1,4 @@
-FROM   node:12-alpine
+FROM   node:12-slim
 
 # Build
 COPY    ./package* /app/
@@ -15,4 +15,4 @@ ENTRYPOINT ["/tini", "--"]
 
 # Run
 EXPOSE  3000
-CMD     node app.js
+CMD     ["node", "app.js"]
