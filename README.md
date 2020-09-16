@@ -10,3 +10,8 @@
 ## 목록
 
 - [echo](./echo): 접속한 서버 정보를 json으로 리턴 (3000포트)
+
+```
+docker run --rm -p 3000:3000 ghcr.io/subicura/echo
+curl localhost:3000
+```
