@@ -25,5 +25,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
           registry: ghcr.io
-          repository: subicura/server-info
-          tag: ${{ github.event.inputs.tag }}
+          repository: subicura/${{ github.event.inputs.dir }}
+          tags: subicura/${{ github.event.inputs.dir }}:${{ github.event.inputs.tag }}
