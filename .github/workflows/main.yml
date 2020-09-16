@@ -16,7 +16,6 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
-          # registry: docker.pkg.github.com
           registry: ghcr.io
-          repository: subicura/docker-build/server-info
+          repository: subicura/server-info
           tag_with_ref: true
