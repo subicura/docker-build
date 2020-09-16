@@ -19,5 +19,5 @@ jobs:
           registry: ghcr.io
           repository: subicura/server-info
           tag_with_ref: true
-          file: ./server-info/Dockerfile
-          context: ./server-info
+          file: /github/workspace/server-info/Dockerfile
+          context: /github/workspace/server-info
