@@ -7,7 +7,7 @@ const fastify = require("fastify")({
 
 // Declare a route
 fastify.get("/", function (request, reply) {
-  reply.send({ hostname: os.hostname(), hello: "world" });
+  reply.send({ hostname: os.hostname(), headers: request.headers, query: request.query });
 });
 
 // Run the server!
