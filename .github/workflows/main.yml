@@ -2,7 +2,7 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   push_to_registry:
@@ -19,5 +19,3 @@ jobs:
           registry: ghcr.io
           repository: subicura/server-info
           tag_with_ref: true
-          file: /github/workspace/server-info/Dockerfile
-          context: /github/workspace/server-info
