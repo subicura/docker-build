@@ -32,3 +32,5 @@ jobs:
           tags: ghcr.io/subicura/${{ github.event.inputs.dir }}:${{ github.event.inputs.tag }}
           file: ./${{ github.event.inputs.dir }}/Dockerfile
           context: ./${{ github.event.inputs.dir }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/subicura/docker-build
