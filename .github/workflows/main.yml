@@ -15,8 +15,8 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          # registry: ghcr.io
+          password: ${{ secrets.CR_PAT }}
+          # registry: docker.pkg.github.com
+          registry: ghcr.io
           repository: subicura/docker-build/server-info
           tag_with_ref: true
