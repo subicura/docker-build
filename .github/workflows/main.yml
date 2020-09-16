@@ -26,7 +26,6 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-          push: true
+          tags: ghcr.io/subicura/${{ github.event.inputs.dir }}:${{ github.event.inputs.tag }}
           file: ./${{ github.event.inputs.dir }}/Dockerfile
           context: ./${{ github.event.inputs.dir }}
-          tags: subicura/${{ github.event.inputs.dir }}:${{ github.event.inputs.tag }}
