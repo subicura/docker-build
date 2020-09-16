@@ -21,14 +21,12 @@ jobs:
         uses: docker/login-action@v1 
         with:
           registry: ghcr.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           push: true
           file: ./${{ github.event.inputs.dir }}/Dockerfile
           context: ./${{ github.event.inputs.dir }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.CR_PAT }}
           tags: subicura/${{ github.event.inputs.dir }}:${{ github.event.inputs.tag }}
