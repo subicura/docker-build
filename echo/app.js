@@ -8,7 +8,7 @@ const fastify = require("fastify")({
 // Declare a route
 fastify.get("/", function (request, reply) {
   reply.send({
-    version: "v1",
+    version: "v2",
     hostname: os.hostname(),
     headers: request.headers,
     query: request.query,
