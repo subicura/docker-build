@@ -1,4 +1,5 @@
 const os = require("os");
+const yaml = require("js-yaml");
 
 // Require the framework and instantiate it
 const fastify = require("fastify")({
@@ -7,12 +8,14 @@ const fastify = require("fastify")({
 
 // Declare a route
 fastify.get("/", function (request, reply) {
-  reply.send({
-    version: "v2",
-    hostname: os.hostname(),
-    headers: request.headers,
-    query: request.query,
-  });
+  reply.send(
+    yaml.dump({
+      version: "v2",
+      hostname: os.hostname(),
+      headers: request.headers,
+      query: request.query,
+    })
+  );
 });
 
 // Run the server!
