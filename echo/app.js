@@ -10,7 +10,7 @@ const fastify = require("fastify")({
 fastify.get("/", function (request, reply) {
   reply.send(
     yaml.dump({
-      version: "v1",
+      version: "v2",
       hostname: os.hostname(),
       headers: request.headers,
       query: request.query,
