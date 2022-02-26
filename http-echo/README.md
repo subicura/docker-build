@@ -25,6 +25,12 @@ go run main.go
 go test
 ```
 
+**package update**
+
+```
+go mod tidy
+```
+
 ## 도커 빌드
 
 ```

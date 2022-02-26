@@ -4,7 +4,6 @@ WORKDIR /go/src/app
 COPY . .
 
 ENV GIN_MODE release
-RUN go mod tidy
 RUN arch="$(apk --print-arch)"; \
 	case "$arch" in \
 	'x86_64') \
@@ -37,4 +36,5 @@ COPY --from=builder /go/bin/http-echo /http-echo
 
 EXPOSE 8080
 
-CMD ["/http-echo"]
+ENTRYPOINT ["/http-echo"]
+CMD [""]
