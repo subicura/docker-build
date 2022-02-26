@@ -2,6 +2,12 @@
 
 특정 텍스트를 리턴하는 웹서버
 
+- `linux/amd64`, `linux/arm64` 지원
+
+```
+docker run --rm -p 8080:8080 ghcr.io/subicura/http-echo:latest --text="hello world"
+```
+
 ## 개발환경 설정
 
 ```
