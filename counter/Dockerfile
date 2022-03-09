@@ -7,6 +7,9 @@ RUN        npm install
 
 COPY       . /app
 
+# Using helper
+RUN        apk add --no-cache curl busybox-extras
+
 # Using Tiny process
 RUN        apk add --no-cache tini
 ENTRYPOINT ["/sbin/tini", "--"]
