@@ -3,7 +3,6 @@ FROM golang:1.17-alpine as builder
 WORKDIR /go/src/app
 COPY . .
 
-ENV GIN_MODE release
 RUN arch="$(apk --print-arch)"; \
 	case "$arch" in \
 	'x86_64') \
