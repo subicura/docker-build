@@ -316,11 +316,11 @@ ldap {
 	#
 	#  Post-Auth can modify LDAP objects too
 	#
-	post-auth {
-		update {
-			description := "Authenticated at %S"
-		}
-	}
+	# post-auth {
+	# 	update {
+	# 		description := "Authenticated at %S"
+	# 	}
+	# }
 
 	#
 	#  LDAP connection-specific options.
