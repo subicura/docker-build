@@ -114,7 +114,7 @@ ldap {
 
 		#  Filter for user objects, should be specific enough
 		#  to identify a single user object.
-		filter = "@LDAP_USER_FILTER@"
+		filter = "(sAMAccountName=%{%{Stripped-User-Name}:-%{User-Name}})"
 
 		#  Search scope, may be 'base', 'one', sub' or 'children'
 #		scope = 'sub'
