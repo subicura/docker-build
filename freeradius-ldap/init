@@ -79,13 +79,13 @@ fi
 # setup clients
 IFS=$',' read -ra RADIUS_CLIENT_CREDENTIALS_ARRAY <<< "$RADIUS_CLIENT_CREDENTIALS"
 for i in "${RADIUS_CLIENT_CREDENTIALS_ARRAY[@]}"; do
-    CLIENT="${i%%:*}"
-    SECRET="${i#*:}"
+    STR_ARRAY=(`echo $i | tr ":" "\n"`)
     cat >> /etc/raddb/clients.conf << EOF
-client $CLIENT {
-    secret = $SECRET
-    shortname = $CLIENT
-    ipaddr = $CLIENT
+client ${STR_ARRAY[0]} {
+    shortname = ${STR_ARRAY[0]}
+    ipaddr = ${STR_ARRAY[0]}
+    netmask = ${STR_ARRAY[1]}
+    secret = ${STR_ARRAY[2]}
     nas_type = other
 }
 EOF
