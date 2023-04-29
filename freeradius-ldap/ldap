@@ -151,57 +151,57 @@ ldap {
 	#
 	#  User membership checking.
 	#
-	group {
-		#  Where to start searching in the tree for groups
-		base_dn = "@LDAP_GROUP_BASEDN@"
+# 	group {
+# 		#  Where to start searching in the tree for groups
+# 		base_dn = "@LDAP_GROUP_BASEDN@"
 
-		#  Filter for group objects, should match all available
-		#  group objects a user might be a member of.
-		filter = "(objectClass=posixGroup)"
+# 		#  Filter for group objects, should match all available
+# 		#  group objects a user might be a member of.
+# 		filter = "(objectClass=posixGroup)"
 
-		# Search scope, may be 'base', 'one', sub' or 'children'
-#		scope = 'sub'
+# 		# Search scope, may be 'base', 'one', sub' or 'children'
+# #		scope = 'sub'
 
-		#  Attribute that uniquely identifies a group.
-		#  Is used when converting group DNs to group
-		#  names.
-		name_attribute = cn
+# 		#  Attribute that uniquely identifies a group.
+# 		#  Is used when converting group DNs to group
+# 		#  names.
+# 		name_attribute = cn
 
-		#  Filter to find group objects a user is a member of.
-		#  That is, group objects with attributes that
-		#  identify members (the inverse of membership_attribute).
-		membership_filter = "(|(member=%{control:Ldap-UserDn})(memberUid=%{%{Stripped-User-Name}:-%{User-Name}}))"
+# 		#  Filter to find group objects a user is a member of.
+# 		#  That is, group objects with attributes that
+# 		#  identify members (the inverse of membership_attribute).
+# 		membership_filter = "(|(member=%{control:Ldap-UserDn})(memberUid=%{%{Stripped-User-Name}:-%{User-Name}}))"
 
-		#  The attribute in user objects which contain the names
-		#  or DNs of groups a user is a member of.
-		#
-		#  Unless a conversion between group name and group DN is
-		#  needed, there's no requirement for the group objects
-		#  referenced to actually exist.
-#		membership_attribute = "memberOf"
+# 		#  The attribute in user objects which contain the names
+# 		#  or DNs of groups a user is a member of.
+# 		#
+# 		#  Unless a conversion between group name and group DN is
+# 		#  needed, there's no requirement for the group objects
+# 		#  referenced to actually exist.
+# #		membership_attribute = "memberOf"
 
-		#  If cacheable_name or cacheable_dn are enabled,
-		#  all group information for the user will be
-		#  retrieved from the directory and written to LDAP-Group
-		#  attributes appropriate for the instance of rlm_ldap.
-		#
-		#  For group comparisons these attributes will be checked
-		#  instead of querying the LDAP directory directly.
-		#
-		#  This feature is intended to be used with rlm_cache.
-		#
-		#  If you wish to use this feature, you should enable
-		#  the type that matches the format of your check items
-		#  i.e. if your groups are specified as DNs then enable
-		#  cacheable_dn else enable cacheable_name.
-#		cacheable_name = "no"
-#		cacheable_dn = "no"
+# 		#  If cacheable_name or cacheable_dn are enabled,
+# 		#  all group information for the user will be
+# 		#  retrieved from the directory and written to LDAP-Group
+# 		#  attributes appropriate for the instance of rlm_ldap.
+# 		#
+# 		#  For group comparisons these attributes will be checked
+# 		#  instead of querying the LDAP directory directly.
+# 		#
+# 		#  This feature is intended to be used with rlm_cache.
+# 		#
+# 		#  If you wish to use this feature, you should enable
+# 		#  the type that matches the format of your check items
+# 		#  i.e. if your groups are specified as DNs then enable
+# 		#  cacheable_dn else enable cacheable_name.
+# #		cacheable_name = "no"
+# #		cacheable_dn = "no"
 
-		#  Override the normal cache attribute (<inst>-LDAP-Group)
-		#  and create a custom attribute.  This can help if multiple
-		#  module instances are used in fail-over.
-#		cache_attribute = "LDAP-Cached-Membership"
-	}
+# 		#  Override the normal cache attribute (<inst>-LDAP-Group)
+# 		#  and create a custom attribute.  This can help if multiple
+# 		#  module instances are used in fail-over.
+# #		cache_attribute = "LDAP-Cached-Membership"
+# 	}
 
 	#
 	#  User profiles. RADIUS profile objects contain sets of attributes
