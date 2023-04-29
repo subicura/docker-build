@@ -70,7 +70,7 @@ ldap {
 	#  the name value to be derived from an xlat expansion, or an
 	#  attribute ref.
 	update {
-		control:Password-With-Header	+= 'userPassword'
+		control:Password-With-Header	:= 'userPassword'
 #		control:NT-Password		:= 'ntPassword'
 #		reply:Reply-Message		:= 'radiusReplyMessage'
 #		reply:Tunnel-Type		:= 'radiusTunnelType'
