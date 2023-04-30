@@ -7,6 +7,7 @@ LDAP_USER="${LDAP_USER:-cn=admin,dc=example,dc=com}"
 LDAP_PASS="${LDAP_PASS:-password}"
 LDAP_BASEDN="${LDAP_BASEDN:-dc=example,dc=com}"
 LDAP_USER_BASEDN="${LDAP_USER_BASEDN:-ou=Users,dc=example,dc=com}"
+LDAP_USER_FILTER="${LDAP_USER_FILTER:-CHANGE_THIS}"
 LDAP_GROUP_BASEDN="${LDAP_GROUP_BASEDN:-ou=Groups,dc=example,dc=com}"
 LDAP_CLIENT_BASEDN="${LDAP_CLIENT_BASEDN:-ou=Clients,dc=example,dc=com}"
 
