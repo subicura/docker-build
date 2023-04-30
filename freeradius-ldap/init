@@ -28,6 +28,7 @@ ldap_subst "@LDAP_USER@" "${LDAP_USER}"
 ldap_subst "@LDAP_PASS@" "${LDAP_PASS}"
 ldap_subst "@LDAP_BASEDN@" "${LDAP_BASEDN}"
 ldap_subst "@LDAP_USER_BASEDN@" "${LDAP_USER_BASEDN}"
+ldap_subst "@LDAP_USER_FILTER@" "${LDAP_USER_FILTER}"
 ldap_subst "@LDAP_GROUP_BASEDN@" "${LDAP_GROUP_BASEDN}"
 ldap_subst "@LDAP_CLIENT_BASEDN@" "${LDAP_CLIENT_BASEDN}"
 
