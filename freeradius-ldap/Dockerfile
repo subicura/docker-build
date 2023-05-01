@@ -1,7 +1,7 @@
 FROM freeradius/freeradius-server
 
 COPY ldap /etc/raddb/mods-available/
-COPY eap /etc/raddb/mods-available/
+# COPY eap /etc/raddb/mods-available/
 COPY init /
 RUN chmod +x /init
 
