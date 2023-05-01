@@ -73,7 +73,7 @@ server = "@LDAP_HOST@"
     #  the name value to be derived from an xlat expansion, or an
     #  attribute ref.
     update {
-    	control:Password-With-Header	:= 'userPassword'
+    	control:Password-With-Header	+= 'userPassword'
 
 # control:NT-Password := 'ntPassword'
 
