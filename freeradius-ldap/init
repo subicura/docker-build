@@ -40,13 +40,13 @@ ln -s /etc/raddb/mods-available/ldap /etc/raddb/mods-enabled/ldap
 # configure the default site for ldap
 # sed -i -e 's/-ldap/ldap/g' /etc/raddb/sites-available/default
 sed -i -e 's/-ldap/ldap\n        if ((ok || updated) \&\& User-Password \&\& !control:Auth-Type)  {\n        update control {\n        Auth-Type := ldap\n        }\n        }\n/g' /etc/raddb/sites-available/default
-sed -i -e '/^#[[:space:]]*Auth-Type LDAP {$/{N;N;s/#[[:space:]]*Auth-Type LDAP {\n#[[:space:]]*ldap\n#[[:space:]]*}/        Auth-Type LDAP {\n                ldap\n        }/}' /etc/raddb/sites-available/default
+# sed -i -e '/^#[[:space:]]*Auth-Type LDAP {$/{N;N;s/#[[:space:]]*Auth-Type LDAP {\n#[[:space:]]*ldap\n#[[:space:]]*}/        Auth-Type LDAP {\n                ldap\n        }/}' /etc/raddb/sites-available/default
 sed -i -e 's/^#[[:space:]]*ldap/        ldap/g' /etc/raddb/sites-available/default
 
 # configure the inner-tunnel site for ldap
 # sed -i -e 's/-ldap/ldap/g' /etc/raddb/sites-available/inner-tunnel
 sed -i -e 's/-ldap/ldap\n        if ((ok || updated) \&\& User-Password \&\& !control:Auth-Type)  {\n        update control {\n        Auth-Type := ldap\n        }\n        }\n/g' /etc/raddb/sites-available/inner-tunnel
-sed -i -e '/^#[[:space:]]*Auth-Type LDAP {$/{N;N;s/#[[:space:]]*Auth-Type LDAP {\n#[[:space:]]*ldap\n#[[:space:]]*}/        Auth-Type LDAP {\n                ldap\n        }/}' /etc/raddb/sites-available/inner-tunnel
+# sed -i -e '/^#[[:space:]]*Auth-Type LDAP {$/{N;N;s/#[[:space:]]*Auth-Type LDAP {\n#[[:space:]]*ldap\n#[[:space:]]*}/        Auth-Type LDAP {\n                ldap\n        }/}' /etc/raddb/sites-available/inner-tunnel
 sed -i -e 's/^#[[:space:]]*ldap/        ldap/g' /etc/raddb/sites-available/inner-tunnel
 
 use_distro_provided_file() {
