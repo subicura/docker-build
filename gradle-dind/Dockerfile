@@ -1,20 +1,17 @@
-FROM gradle:6-jdk11
+FROM docker:24.0-dind
 
-RUN apt-get update -yqq
-RUN apt-get install -yqq \
-  apt-transport-https \
-  ca-certificates \
-  curl \
-  gnupg \
-  software-properties-common \
-  lsb-release
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-RUN add-apt-repository \
-  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) \
-  stable"
+# install jdk11
+RUN apk --no-cache add openjdk11
 
-RUN apt-get update -yqq && \
-  apt-get install -yqq docker-ce
+# install gradle
+ENV GRADLE_VERSION 6.9.4
+ENV GRADLE_HOME /usr/local/gradle
+ENV PATH ${PATH}:${GRADLE_HOME}/bin
+ENV GRADLE_USER_HOME /gradle
 
-RUN /bin/bash -c 'echo -e "{\n \"iptables\": false\n}" > /etc/docker/daemon.json'
+# Install gradle
+WORKDIR /usr/local
+RUN wget  https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
+  unzip gradle-$GRADLE_VERSION-bin.zip && \
+  rm -f gradle-$GRADLE_VERSION-bin.zip && \
+  ln -s gradle-$GRADLE_VERSION gradle
