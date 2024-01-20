@@ -1,5 +1,5 @@
-FROM docker:20.10.7
+FROM docker:25.0.0
 
 # Install build-essentials
-RUN apk --no-cache add py3-pip python3-dev build-base
-RUN pip3 --no-cache-dir install awscli
+RUN apk --no-cache add py3-pip python3-dev build-base awscli
+
